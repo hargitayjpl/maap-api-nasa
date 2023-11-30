@@ -45,7 +45,6 @@ def err_response(msg, code=status.HTTP_400_BAD_REQUEST):
 class Member(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def get(self):
         members = db.session.query(
             Member_db.id,
@@ -66,7 +65,6 @@ class Member(Resource):
 class Member(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def get(self, key):
 
         cols = [
@@ -106,7 +104,6 @@ class Member(Resource):
         return result
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def post(self, key):
 
         """
@@ -195,7 +192,6 @@ class Member(Resource):
         return json.loads(member_schema.dumps(guest))
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def put(self, key):
 
         """
@@ -259,7 +255,6 @@ class Member(Resource):
 class MemberStatus(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def post(self, key):
 
         """
@@ -330,7 +325,6 @@ class MemberStatus(Resource):
 class Self(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def get(self):
         authorized_user = get_authorized_user()
 
@@ -361,7 +355,6 @@ class Self(Resource):
 class SelfTest(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def get(self):
         member = get_authorized_user()
         member_schema = MemberSchema()
@@ -373,7 +366,6 @@ class SelfTest(Resource):
 class PublicSshKeyUpload(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def post(self):
         if 'file' not in request.files:
             log.error('Upload attempt with no file')
@@ -396,7 +388,6 @@ class PublicSshKeyUpload(Resource):
         return json.loads(member_schema.dumps(member))
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def delete(self):
         member = get_authorized_user()
 
@@ -419,7 +410,6 @@ class PresignedUrlS3(Resource):
     expiration_param.add_argument('ws', type=str, required=False, default="")
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     @api.expect(expiration_param)
     def get(self, bucket, key):
 
@@ -461,7 +451,6 @@ class AwsAccessRequesterPaysBucket(Resource):
     expiration_param.add_argument('exp', type=int, required=False, default=60 * 60 * 12)
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     @api.expect(expiration_param)
     def get(self):
 
@@ -498,7 +487,6 @@ class AwsAccessEdcCredentials(Resource):
         https://api.maap-project.org/api/self/edcCredentials/https%3A%2F%2Fdata.lpdaac.earthdatacloud.nasa.gov%2Fs3credentials
     """
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def get(self, endpoint_uri):
         maap_user = get_authorized_user()
 
@@ -530,7 +518,6 @@ class AwsAccessUserBucketCredentials(Resource):
         https://api.maap-project.org/api/self/awsAccess/workspaceBucket
     """
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def get(self):
         maap_user = get_authorized_user()
 
@@ -652,7 +639,6 @@ def get_edc_credentials(endpoint_uri, user):
 class PreApprovedEmails(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def get(self):
         pre_approved = db.session.query(
             PreApproved.email,
@@ -664,7 +650,6 @@ class PreApprovedEmails(Resource):
         return result
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def post(self):
 
         """
@@ -712,7 +697,6 @@ class PreApprovedEmails(Resource):
 class PreApprovedEmails(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def delete(self, email):
 
         """

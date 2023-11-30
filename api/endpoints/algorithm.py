@@ -91,7 +91,6 @@ class Register(Resource):
             ]""")
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def post(self):
         """
         This will create the hysds spec files and commit to git
@@ -422,7 +421,6 @@ class Describe(Resource):
                                   .format(ex, tb)), status=status.HTTP_500_INTERNAL_SERVER_ERROR, mimetype='text/xml')
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def delete(self, algo_id):
         """
         delete a registered algorithm
@@ -494,7 +492,6 @@ class Build(Resource):
 class Publish(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def post(self):
         """
         This endpoint is called by a logged-in user to make an algorithm public

@@ -32,7 +32,6 @@ ns = api.namespace('dps', description='Operations to interface with HySDS Mozart
 class Submit(Resource):
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def post(self):
         """
         This will submit jobs to the Job Execution System (HySDS)
@@ -461,7 +460,6 @@ class Jobs(Resource):
                         help="Job Listing Pagination Offset")
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def get(self, username):
         """
         This will return run a list of jobs for a specified user
@@ -512,7 +510,6 @@ class StopJobs(Resource):
                         help="Wait for Cancel job to finish")
 
     @api.doc(security='ApiKeyAuth')
-    @login_required
     def post(self, job_id):
         # TODO: add optional parameter wait_for_completion to wait for cancel job to complete.
         # Since this can take a long time, we don't wait by default.
