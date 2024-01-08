@@ -50,13 +50,13 @@ CONTAINER_URL = 'registry.dit.maap-project.org/root/dps_plot:master'
 
 # HySDS Settings
 HYSDS_VERSION = "v4.0"
-MOZART_URL = 'https://100.65.170.195/mozart/api/v0.2'
-MOZART_V1_URL = 'https://100.65.170.195/mozart/api/v0.1'  # new from sister
-GRQ_URL = 'http://100.65.170.92:8878/api/v0.1'  # new from sister
+MOZART_URL = 'https://100.68.234.39/mozart/api/v0.2'
+MOZART_V1_URL = 'https://100.68.234.39/mozart/api/v0.1'  # new from sister
+GRQ_URL = 'http://100.68.234.217:8878/api/v0.1'  # new from sister
 DEFAULT_QUEUE = 'test-job_worker-large'
 LW_QUEUE = 'system-jobs-queue'
 HYSDS_LW_VERSION = 'v0.0.5'
-GRQ_REST_URL = 'http://100.65.170.92/api/v0.1'
+GRQ_REST_URL = 'http://100.68.234.217/api/v0.1'
 S3_CODE_BUCKET = 's3://mybucket'
 DPS_MACHINE_TOKEN = ''
 
