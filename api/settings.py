@@ -30,12 +30,12 @@ MAAP_WMTS_XML = '/maap-api-nasa/api/maap.wmts.xml'
 MAAP_EDL_CREDS = ''
 
 # GIT settings
-GIT_REPO_URL = 'https://gitlab-ci-token:$TOKEN@repo.dit.maap-project.org/root/register-job.git'
-GIT_API_URL = 'https://repo.dit.maap-project.org/api/v4/projects'
-REGISTER_JOB_REPO_ID = ''  # Enter project ID for register job repo
+GIT_REPO_URL = 'http://100.68.234.25/root/register-job.git'
+GIT_API_URL = 'http://100.68.234.25/api/v4/projects'
+REGISTER_JOB_REPO_ID = '1'  # Enter project ID for register job repo
 
 # GTILAB Settings
-GITLAB_TOKEN = 'foobar'
+GITLAB_TOKEN = 'glpat-7vfQNaKyVsWH64VJVHGX'
 GITLAB_API_TOKEN = ''  # New setting inherited from sister, remove comment after API is stable
 
 MAAP_ENVIRONMENT_FILE = 'https://raw.githubusercontent.com/MAAP-Project/maap-jupyter-ide/develop/maap_environments.json'
