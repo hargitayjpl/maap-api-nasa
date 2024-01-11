@@ -42,7 +42,7 @@ MAAP_ENVIRONMENT_FILE = 'https://raw.githubusercontent.com/MAAP-Project/maap-jup
 
 REPO_NAME = 'register-job'
 REPO_PATH = '/home/ubuntu/repo'
-VERSION = 'master'
+VERSION = 'main'
 SUPPORTED_EXTENSIONS = ['py', 'java', 'sh']
 
 # Docker container URL
